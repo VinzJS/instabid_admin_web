@@ -1,0 +1,10 @@
+# Enable the Rewrite Engine
+RewriteEngine On
+
+# This section rewrites the API requests to the correct PHP files
+# All requests to api/collections/XXX/records/* will be rewritten to api/collections/XXX/records/index.php
+RewriteRule ^api/collections/([^/]+)/records/([^/]+)$ api/collections/$1/records/index.php?recordId=$2 [L,QSA]
+RewriteRule ^api/collections/([^/]+)/records/?$ api/collections/$1/records/index.php [L,QSA]
+RewriteRule ^api/collections/([^/]+)/records/auth-with-password$ api/collections/$1/records/auth-with-password.php [L,QSA]
+RewriteRule ^api/collections/([^/]+)/records/auth-with-refresh$ api/collections/$1/records/auth-with-refresh.php [L,QSA]
+
